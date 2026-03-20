@@ -10,15 +10,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
-<body class="dark-theme">
+<body>
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
     <nav id="navbar">
         <div class="container">
             <div class="logo">AM.<span>IO</span></div>
-            <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div style="display:flex; align-items:center;">
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">🌓</button>
+                <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -39,6 +45,7 @@
             <div class="hero-btns fade-in delay-3">
                 <a href="#projects" class="btn primary">View My Work</a>
                 <a href="#contact" class="btn secondary">Hire Me</a>
+                <a href="assets/certificates/document.pdf" download class="btn secondary">Download CV</a>
             </div>
         </div>
     </header>
@@ -63,7 +70,21 @@
         </div>
     </section>
 
-    <section id="projects" class="section">
+    <section id="journey" class="section">
+        <div class="container">
+            <h2 class="section-title">My Journey</h2>
+            <div class="timeline">
+                <div id="education-timeline" class="timeline-column">
+                    <h3>Education</h3>
+                </div>
+                <div id="experience-timeline" class="timeline-column">
+                    <h3>Experience</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section bg-alt">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div id="projects-container" class="projects-grid">
@@ -72,7 +93,7 @@
         </div>
     </section>
 
-    <section id="certificates" class="section bg-alt">
+    <section id="certificates" class="section">
         <div class="container">
             <h2 class="section-title">Certifications</h2>
             <div id="certificates-container" class="certificates-grid">
@@ -81,14 +102,28 @@
         </div>
     </section>
 
-    <section id="contact" class="section">
+    <section id="contact" class="section bg-alt">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-card">
-                <p>Interested in working together? Let's talk.</p>
-                <div id="contact-info" class="contact-info">
-                    <!-- Contact info will be injected here -->
+            <div class="contact-wrapper">
+                <div class="contact-card">
+                    <h3>Contact Information</h3>
+                    <div id="contact-info" class="contact-info" style="margin-top:1.5rem;">
+                        <!-- Contact info will be injected here -->
+                    </div>
                 </div>
+                <form class="contact-form" action="mailto:kevinshaa1811@gmail.com" method="post" enctype="text/plain">
+                    <div class="input-group">
+                        <input type="text" name="Name" required placeholder="Your Name">
+                    </div>
+                    <div class="input-group">
+                        <input type="email" name="Email" required placeholder="Your Email">
+                    </div>
+                    <div class="input-group">
+                        <textarea name="Message" rows="5" required placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn primary" style="color:var(--bg-dark);">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
@@ -189,6 +224,37 @@
                     skillsContainer.appendChild(card);
                 });
 
+                const eduContainer = document.getElementById('education-timeline');
+                if (data.education && eduContainer) {
+                    data.education.forEach(edu => {
+                        eduContainer.innerHTML += `
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <span class="timeline-period">${edu.year}</span>
+                                    <h4>${edu.degree}</h4>
+                                    <p>${edu.institution}</p>
+                                </div>
+                            </div>
+                        `;
+                    });
+                }
+
+                const expContainer = document.getElementById('experience-timeline');
+                if (data.experience && expContainer) {
+                    data.experience.forEach(exp => {
+                        expContainer.innerHTML += `
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <span class="timeline-period">${exp.period}</span>
+                                    <h4>${exp.role}</h4>
+                                    <p>${exp.company}</p>
+                                    <p style="font-size:0.9rem; color:var(--text-dim); margin-top:0.5rem;">${exp.description}</p>
+                                </div>
+                            </div>
+                        `;
+                    });
+                }
+
                 const projectsContainer = document.getElementById('projects-container');
                 data.projects.forEach(project => {
                     const card = document.createElement('div');
@@ -229,6 +295,24 @@
                     <p><strong>LinkedIn:</strong> <a href="${data.personal_info.contact.linkedin}" target="_blank" style="color: var(--primary)">Profile</a></p>
                 `;
             }
+
+            // Theme Toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-theme');
+            });
+
+            // Custom Cursor
+            const cursorDot = document.querySelector('[data-cursor-dot]');
+            const cursorOutline = document.querySelector('[data-cursor-outline]');
+            
+            window.addEventListener('mousemove', function(e) {
+                const posX = e.clientX;
+                const posY = e.clientY;
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
+                cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
+            });
 
             // Mobile Menu Toggle
             const mobileMenu = document.getElementById('mobile-menu');
