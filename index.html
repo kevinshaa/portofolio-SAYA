@@ -134,6 +134,7 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" integrity="sha512-wC/cunGGDjXSl9OHru0RuAofstefvOwaOofxrF-F1XbXYXo7iAytD2a7PjZl0j39jXIf7e1K/s0tPE0YnukbCQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         const portfolioData = {
           "personal_info": {
@@ -294,7 +295,30 @@
                     <p><strong>WhatsApp:</strong> <a href="https://wa.me/${data.personal_info.contact.whatsapp}" target="_blank" style="color: var(--primary)">Chat on WhatsApp</a></p>
                     <p><strong>LinkedIn:</strong> <a href="${data.personal_info.contact.linkedin}" target="_blank" style="color: var(--primary)">Profile</a></p>
                 `;
+
+                // Initialize 3D Tilt Effect on newly created cards
+                VanillaTilt.init(document.querySelectorAll(".skill-card, .project-card, .cert-card, .contact-card"), {
+                    max: 12,
+                    speed: 400,
+                    glare: true,
+                    "max-glare": 0.15,
+                    scale: 1.03
+                });
             }
+
+            // Magnetic Buttons
+            const btns = document.querySelectorAll('.btn');
+            btns.forEach(btn => {
+                btn.addEventListener('mousemove', function(e) {
+                    const position = btn.getBoundingClientRect();
+                    const x = e.clientX - position.left - position.width / 2;
+                    const y = e.clientY - position.top - position.height / 2;
+                    btn.style.transform = `translate(${x * 0.3}px, ${y * 0.5}px)`;
+                });
+                btn.addEventListener('mouseleave', function(e) {
+                    btn.style.transform = `translate(0px, 0px)`;
+                });
+            });
 
             // Theme Toggle
             const themeToggle = document.getElementById('theme-toggle');
