@@ -1,0 +1,61 @@
+{
+  "personal_info": {
+    "name": "Arvin Pradipta Mahadika",
+    "title": "D3 Mechatronics Engineer",
+    "contact": {
+      "email": "kevinshaa1811@gmail.com",
+      "phone": "085707170483",
+      "whatsapp": "089602469784",
+      "linkedin": "https://linkedin.com/in/arvin-pradipta",
+      "github": "https://github.com/arvin-pradipta"
+    },
+    "bio": "A passionate Mechatronics Engineer with expertise in IoT, Electrical Systems, and Mechanical Design. Focused on building innovative solutions for industrial automation."
+  },
+  "skills": {
+    "technical": [
+      "IoT Development",
+      "System Engineering",
+      "PCB Design",
+      "PLC Programming",
+      "C++ / Arduino",
+      "Python"
+    ],
+    "soft_skills": [
+      "Problem Solving",
+      "Team Leadership",
+      "Analytical Thinking",
+      "Effective Communication"
+    ]
+  },
+  "experience": [
+    {
+      "company": "Tech Innovations Inc.",
+      "role": "Mechatronics Intern",
+      "period": "Jan 2024 - Present",
+      "description": "Developing automated sorting systems using conveyor belts and sensors."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Robot Pengantar Dokumen IoT",
+      "description": "An autonomous robot designed for document delivery within an office environment, featuring real-time tracking and control.",
+      "technologies": ["ESP32", "Arduino", "Web Dashboard"],
+      "link": "https://github.com/arvin-pradipta/iot-document-robot"
+    }
+  ],
+  "certificates": [
+    {
+      "title": "CSWA - Certified SOLIDWORKS Associate",
+      "issuer": "Politeknik Takumi",
+      "date": "2025",
+      "file": "assets/certificates/document.pdf"
+    }
+  ],
+  "education": [
+    {
+      "institution": "Polytechnic Institute",
+      "degree": "Associate Degree (D3) in Mechatronics",
+      "year": "2021 - 2024"
+    }
+  ]
+}
