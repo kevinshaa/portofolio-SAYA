@@ -1,7 +1,7 @@
 {
   "personal_info": {
     "name": "Arvin Pradipta Mahadika",
-    "title": "D3 Mechatronics Engineer",
+    "title": "Hardware Integrator & D3 Mechatronics Engineer",
     "contact": {
       "email": "kevinshaa1811@gmail.com",
       "phone": "085707170483",
@@ -9,16 +9,37 @@
       "linkedin": "https://linkedin.com/in/arvin-pradipta",
       "github": "https://github.com/arvin-pradipta"
     },
-    "bio": "A passionate Mechatronics Engineer with expertise in IoT, Electrical Systems, and Mechanical Design. Focused on building innovative solutions for industrial automation."
+    "bio": "Saya adalah seorang Hardware Integrator dan 3D Designer yang berfokus pada integrasi fisik otomasi industri serta pengembangan purwarupa mekanik. Sebagai mahasiswa tingkat akhir Diploma III Mekatronika di Politeknik Takumi, saya menggabungkan dasar teori teknik kelistrikan dan mekanikal dengan pengalaman praktis dalam merancang sistem otomasi."
   },
   "skills": {
-    "technical": [
-      "IoT Development",
-      "System Engineering",
-      "PCB Design",
-      "PLC Programming",
-      "C++ / Arduino",
-      "Python"
+    "categories": [
+      {
+        "name": "Hardware Installation & Wiring",
+        "items": [
+          "Perakitan panel kontrol & kelistrikan industri",
+          "Instalasi dan kalibrasi sensor industri",
+          "Desain sirkuit pengendali (Relay, Kontaktor)",
+          "Wiring mikrokontroler presisi tinggi (ESP32/Arduino)"
+        ]
+      },
+      {
+        "name": "Mechanical Design & Prototyping",
+        "items": [
+          "Pemodelan 3D komponen mekanikal & casing alat",
+          "Desain teks timbul (embossed text) & detail manufaktur",
+          "Kalibrasi & operasional mesin 3D Printing (FDM)",
+          "SolidWorks & Autodesk Inventor"
+        ]
+      },
+      {
+        "name": "System Integration & IoT",
+        "items": [
+          "Integrasi hardware mekanik, elektrik, & software",
+          "Konfigurasi jaringan lokal & akses remote (SSH)",
+          "Protokol komunikasi IoT & IoT Gateways",
+          "AI-Assisted Programming untuk logika program"
+        ]
+      }
     ],
     "soft_skills": [
       "Problem Solving",
@@ -31,16 +52,34 @@
     {
       "company": "Tech Innovations Inc.",
       "role": "Mechatronics Intern",
-      "period": "Jan 2024 - Present",
-      "description": "Developing automated sorting systems using conveyor belts and sensors."
+      "period": "Jan 2024 - Sekarang",
+      "description": "Fokus pada perakitan sistem otomasi industri, desain casing 3D, dan pengkabelan terstruktur untuk memastikan kemudahan troubleshoot dan keandalan sistem."
     }
   ],
   "projects": [
     {
-      "title": "Robot Pengantar Dokumen IoT",
-      "description": "An autonomous robot designed for document delivery within an office environment, featuring real-time tracking and control.",
-      "technologies": ["ESP32", "Arduino", "Web Dashboard"],
-      "link": "https://github.com/arvin-pradipta/iot-document-robot"
+      "title": "Perakitan Hardware & Instalasi Sistem Smart Laundry Berbasis IoT",
+      "description": "Bertanggung jawab penuh pada eksekusi perakitan perangkat keras mesin cuci pintar. Melakukan instalasi wiring mikrokontroler ESP32, rangkaian relay, dan sensor dengan sangat rapi untuk memastikan durabilitas alat. Menggunakan bantuan AI untuk merumuskan logika software pengontrol otomatis dan integrasi gateway pembayaran digital (QR Code).",
+      "technologies": ["ESP32", "Relay Control", "Sensor Integration", "AI-Assisted Dev", "QR Payment"],
+      "link": "#"
+    },
+    {
+      "title": "Pemodelan 3D dan Manufaktur Purwarupa (Prototyping)",
+      "description": "Mendesain komponen mekanikal menggunakan SolidWorks 2020 dan Autodesk Inventor, merancang casing untuk perangkat elektronik, hingga mengeksekusi proses 3D Printing (seperti pembuatan teks timbul dan komponen khusus) untuk kebutuhan perakitan akhir.",
+      "technologies": ["SolidWorks 2020", "Autodesk Inventor", "3D Printing", "PLA/PETG Fabrication"],
+      "link": "#"
+    },
+    {
+      "title": "Restorasi Akses Infrastruktur Server PC Dell 3050",
+      "description": "Melakukan tindakan perbaikan perangkat keras server saat terjadi kendala, serta menstabilkan kembali koneksi melalui pengaturan SSH dasar agar sistem bisa digunakan untuk presentasi krusial.",
+      "technologies": ["Hardware Troubleshooting", "Dell OptiPlex 3050", "SSH Configuration", "Network Stabilization"],
+      "link": "#"
+    },
+    {
+      "title": "Tugas Akhir (Final Project) Diploma Mekatronika",
+      "description": "Menampilkan integrasi penuh keahlian mekanikal dan instalasi kelistrikan dalam sebuah purwarupa alat cerdas yang siap diimplementasikan untuk memecahkan masalah praktis.",
+      "technologies": ["Mechatronics Integration", "Electrical Installation", "Industrial Control", "Functional Prototype"],
+      "link": "#"
     }
   ],
   "certificates": [
@@ -48,14 +87,22 @@
       "title": "CSWA - Certified SOLIDWORKS Associate",
       "issuer": "Politeknik Takumi",
       "date": "2025",
+      "status": "Certified",
       "file": "assets/certificates/document.pdf"
+    },
+    {
+      "title": "Autodesk Inventor (Desain & Prototyping)",
+      "issuer": "Belum Sertifikasi (Kompetensi Desain Mandiri)",
+      "date": "-",
+      "status": "Competency Only",
+      "file": "#"
     }
   ],
   "education": [
     {
-      "institution": "Polytechnic Institute",
-      "degree": "Associate Degree (D3) in Mechatronics",
-      "year": "2021 - 2024"
+      "institution": "Politeknik Takumi",
+      "degree": "Diploma III (D3) Mekatronika",
+      "year": "2023 - Sekarang"
     }
   ]
 }

@@ -516,7 +516,7 @@ body {
 }
 
 /* Animations */
-.fade-in {
+.fade-in, .hero-fade {
     opacity: 0;
     transform: translateY(30px);
     animation: fadeIn 1s forwards ease-out;
@@ -532,7 +532,7 @@ body {
     white-space: nowrap; 
     border-right: .15em solid var(--primary);
     max-width: fit-content;
-    animation: typing 2.5s steps(40, end), blink-caret .75s step-end infinite;
+    animation: typing 2.5s steps(40, end) forwards, blink-caret .75s step-end infinite;
 }
 
 @keyframes typing {
