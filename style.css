@@ -431,7 +431,7 @@ body {
     gap: 3rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 568px) {
     .timeline { grid-template-columns: 1fr 1fr; }
 }
 
@@ -479,7 +479,7 @@ body {
     gap: 3rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 568px) {
     .contact-wrapper { grid-template-columns: 1fr 2fr; }
 }
 
@@ -574,7 +574,7 @@ body {
     transition: var(--transition);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 568px) {
     .cursor-dot, .cursor-outline {
         display: none !important;
     }
