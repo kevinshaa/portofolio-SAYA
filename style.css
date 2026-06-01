@@ -138,6 +138,7 @@ body {
     align-items: center;
     position: relative;
     background: url('mechatronics_hero_bg.png') no-repeat center center/cover;
+    overflow: hidden;
 }
 
 .hero-overlay {
@@ -574,6 +575,9 @@ body {
 }
 
 @media (max-width: 768px) {
+    .cursor-dot, .cursor-outline {
+        display: none !important;
+    }
     .menu-toggle {
         display: flex;
     }
@@ -625,6 +629,12 @@ body {
 }
 
 @media (max-width: 480px) {
+    .typing-container {
+        white-space: normal !important;
+        border-right: none !important;
+        animation: none !important;
+        max-width: 100% !important;
+    }
     .container {
         padding: 0 1.2rem;
     }
