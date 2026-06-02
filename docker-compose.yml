@@ -1,0 +1,9 @@
+services:
+  portfolio:
+    image: nginx:alpine
+    container_name: portofolio-saya
+    ports:
+      - "8500:80"
+    volumes:
+      - ./:/usr/share/nginx/html:ro
+    restart: unless-stopped
