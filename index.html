@@ -134,6 +134,7 @@
         </div>
     </footer>
 
+    <script src="portfolio-data.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" integrity="sha512-wC/cunGGDjXSl9OHru0RuAofstefvOwaOofxrF-F1XbXYXo7iAytD2a7PjZl0j39jXIf7e1K/s0tPE0YnukbCQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -146,20 +147,12 @@
                 }
             });
 
-            // Fetch and load data dynamically from JSON
-            fetch('portfolio-data.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok: ' + response.statusText);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    populateContent(data);
-                })
-                .catch(error => {
-                    console.error('Error fetching portfolio data:', error);
-                });
+            // Load data dynamically from JS file to bypass CORS issues on local viewing
+            if (typeof portfolioData !== 'undefined') {
+                populateContent(portfolioData);
+            } else {
+                console.error('Error: portfolioData is not defined. Ensure portfolio-data.js is loaded properly.');
+            }
 
             function populateContent(data) {
                 document.getElementById('user-name').innerText = data.personal_info.name;
@@ -238,7 +231,16 @@
                 });
 
                 const certificatesContainer = document.getElementById('certificates-container');
-                certificatesContainer.innerHTML = '';
+                certificatesContainer.innerHTML = `
+                    <h3 style="color:var(--primary); margin-bottom:1rem; width:100%; font-size:1.5rem; text-align:left; grid-column: 1 / -1;">Sertifikat Resmi</h3>
+                    <div id="certs-official" style="display:contents;"></div>
+                    <h3 style="color:var(--primary); margin-top:2rem; margin-bottom:1rem; width:100%; font-size:1.5rem; text-align:left; grid-column: 1 / -1;">Kompetensi Mandiri (Belum Bersertifikat)</h3>
+                    <div id="certs-competency" style="display:contents;"></div>
+                `;
+                
+                const officialContainer = document.getElementById('certs-official');
+                const competencyContainer = document.getElementById('certs-competency');
+
                 data.certificates.forEach(cert => {
                     const card = document.createElement('div');
                     card.className = 'cert-card';
@@ -249,7 +251,7 @@
                         : `<span style="color: var(--text-dim); font-size: 0.85rem; font-style: italic;">Kompetensi Mandiri (Belum Sertifikasi)</span>`;
                     
                     const statusBadgeHtml = cert.status === "Certified"
-                        ? `<span style="display: inline-block; background: rgba(0, 240, 255, 0.15); border: 1px solid var(--primary); color: var(--primary); padding: 0.2rem 0.6rem; border-radius: 50px; font-size: 0.75rem; font-weight: bold; margin-bottom: 0.5rem;">CSWA Certified</span>`
+                        ? `<span style="display: inline-block; background: rgba(0, 240, 255, 0.15); border: 1px solid var(--primary); color: var(--primary); padding: 0.2rem 0.6rem; border-radius: 50px; font-size: 0.75rem; font-weight: bold; margin-bottom: 0.5rem;">Certified</span>`
                         : `<span style="display: inline-block; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); color: var(--text-dim); padding: 0.2rem 0.6rem; border-radius: 50px; font-size: 0.75rem; font-style: italic; margin-bottom: 0.5rem;">Non-Certified</span>`;
 
                     card.innerHTML = `
@@ -261,15 +263,20 @@
                             ${certLinkHtml}
                         </div>
                     `;
-                    certificatesContainer.appendChild(card);
+                    
+                    if (cert.status === "Certified") {
+                        officialContainer.appendChild(card);
+                    } else {
+                        competencyContainer.appendChild(card);
+                    }
                 });
 
                 const contactInfo = document.getElementById('contact-info');
                 contactInfo.innerHTML = `
                     <p><strong>Email:</strong> <a href="mailto:${data.personal_info.contact.email}" style="color: var(--primary)">${data.personal_info.contact.email}</a></p>
                     <p><strong>Phone:</strong> ${data.personal_info.contact.phone}</p>
-                    <p><strong>WhatsApp:</strong> <a href="https://wa.me/${data.personal_info.contact.whatsapp}" target="_blank" style="color: var(--primary)">Chat on WhatsApp</a></p>
-                    <p><strong>LinkedIn:</strong> <a href="${data.personal_info.contact.linkedin}" target="_blank" style="color: var(--primary)">Profile</a></p>
+                    <p><strong>WhatsApp:</strong> <a href="https://wa.me/${data.personal_info.contact.whatsapp.replace(/\D/g, '')}" target="_blank" style="color: var(--primary)">${data.personal_info.contact.whatsapp}</a></p>
+                    <p><strong>Lokasi:</strong> ${data.personal_info.contact.location}</p>
                 `;
 
                 // Initialize 3D Tilt Effect on newly created cards

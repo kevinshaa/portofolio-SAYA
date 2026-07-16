@@ -1,4 +1,4 @@
-{
+const portfolioData = {
   "personal_info": {
     "name": "Arvin Pradipta Mahadika",
     "title": "Mechatronics Technician & Design Engineer",
@@ -178,3 +178,4 @@
     }
   ]
 }
+;
